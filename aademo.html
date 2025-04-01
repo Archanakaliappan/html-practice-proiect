@@ -1,0 +1,38 @@
+<head>
+  <title>GUESS THE NUMBER GAME</title>
+</head>
+<body>
+  <h1>GUESS THE NUMBER</h1>
+  <input id="randomnumcheckingg">
+  <button id="checking" onclick="verifiying()">check</button>
+  <p id="resultchecking">check the answer</p>
+  <p id="scorechecking">YOUR SCORE IS :10</p>
+  <script>
+    var checking= document.getElementById("checking")
+    var resultchecking= document.getElementById("resultchecking")
+    var scorechecking=document.getElementById("scorechecking")
+    var randomnumchecking= document.getElementById("randomnumcheckingg")
+    var a=Math.floor(Math.random()*10)+1
+    console.log(a)
+    
+    var scoretext=resultchecking.textContent
+    var score=10
+    scorechecking.textContent=scorechecking.textContent="YOUR SCORE IS:"+score
+function verifiying(){
+      var enterednum=Number(randomnumchecking.value)
+      if(a==enterednum){
+      resultchecking.textContent="YOU RIGHT!"
+      alert("YOU WON")
+    }
+else {
+  resultchecking.textContent="YOUR WRONG!"
+  score=score-1
+  score.textContent="Score:"+score
+  scorechecking.textContent="YOUR SCORE IS:"+score
+
+  
+}
+    }
+  </script>
+ 
+</body>

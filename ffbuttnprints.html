@@ -1,0 +1,16 @@
+<head>
+    <title> printing the button tag</title>
+</head>
+<body>
+    <button onclick="change(event)">karthika</button>
+    <button onclick="change(event)">krithika</button>
+    <button onclick="change(event)">archana</button>
+    <h1 id="namee">Name</h1>
+    <script>
+var namee=document.getElementById("namee")
+function change(event){
+    namee.textContent=event.target.textContent
+}
+
+    </script>
+</body>
