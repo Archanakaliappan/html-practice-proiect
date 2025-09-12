@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Hello</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f9fafb;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    #printing h1 {
+      margin: 8px 0;
+      color: #333;
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <button id="clicking">ADD</button>
+  <div id="printing"></div>
+
+  <script>
+    const printing = document.getElementById("printing");
+    const button = document.getElementById("clicking");
+
+    button.addEventListener("click", () => {
+      const printt = document.createElement("h1");
+      printt.textContent = "HELLO";
+      printing.append(printt);
+    });
+  </script>
+</body>
+</html>
