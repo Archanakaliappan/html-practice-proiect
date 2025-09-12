@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deletion Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f0f4f8;
+      margin: 0;
+    }
+
+    h1 {
+      margin: 10px;
+      padding: 15px 25px;
+      border-radius: 10px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    h1:hover {
+      transform: scale(1.05);
+      background: #4338ca;
+    }
+
+    p {
+      color: #555;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ONE</h1>
+  <h1>TWO</h1>
+  <h1>THREE</h1>
+  <h1>FOUR</h1>
+  <h1>FIVE</h1>
+  <h1>SIX</h1>
+
+  <p>Click on any box to delete it 👆</p>
+
+  <script>
+    // Select all h1 elements
+    const items = document.querySelectorAll("h1");
+
+    // Add event listener to each
+    items.forEach(item => {
+      item.addEventListener("click", (e) => {
+        e.target.remove();
+      });
+    });
+  </script>
+</body>
+</html>
