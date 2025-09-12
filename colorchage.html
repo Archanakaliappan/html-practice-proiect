@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Change Colour</title>
+  <style>
+    body {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      min-height:100vh;
+      margin:0;
+      background:#f3f4f6;
+      font-family: Arial, sans-serif;
+    }
+    #box {
+      width:100px;
+      height:100px;
+      background:#000;
+      border-radius:10px;
+      transition: all 0.6s ease;
+      margin-bottom:18px;
+    }
+    /* toggled (expanded) state */
+    .wide {
+      width:600px;
+    }
+    button {
+      padding:10px 16px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:#fff;
+      cursor:pointer;
+      font-size:16px;
+    }
+    button:hover { transform:scale(1.03); }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <button id="btnChange">Change colour</button>
+
+  <script>
+    // Grab elements
+    const box = document.getElementById('box');
+    const btn = document.getElementById('btnChange');
+
+    // Colors to cycle through
+    const colors = ['red','green','blue','purple','#ff9900','#00aaff'];
+    let idx = -1;
+
+    btn.addEventListener('click', () => {
+      // cycle to next color
+      idx = (idx + 1) % colors.length;
+      box.style.backgroundColor = colors[idx];
+
+      // toggle width class (expand / collapse)
+      box.classList.toggle('wide');
+    });
+  </script>
+</body>
+</html>
