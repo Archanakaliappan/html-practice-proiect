@@ -2,37 +2,74 @@
   <title>GUESS THE NUMBER GAME</title>
 </head>
 <body>
-  <h1>GUESS THE NUMBER</h1>
-  <input id="randomnumcheckingg">
-  <button id="checking" onclick="verifiying()">check</button>
-  <p id="resultchecking">check the answer</p>
-  <p id="scorechecking">YOUR SCORE IS :10</p>
-  <script>
-    var checking= document.getElementById("checking")
-    var resultchecking= document.getElementById("resultchecking")
-    var scorechecking=document.getElementById("scorechecking")
-    var randomnumchecking= document.getElementById("randomnumcheckingg")
-    var a=Math.floor(Math.random()*10)+1
-    console.log(a)
-    
-    var scoretext=resultchecking.textContent
-    var score=10
-    scorechecking.textContent=scorechecking.textContent="YOUR SCORE IS:"+score
-function verifiying(){
-      var enterednum=Number(randomnumchecking.value)
-      if(a==enterednum){
-      resultchecking.textContent="YOU RIGHT!"
-      alert("YOU WON")
-    }
-else {
-  resultchecking.textContent="YOUR WRONG!"
-  score=score-1
-  score.textContent="Score:"+score
-  scorechecking.textContent="YOUR SCORE IS:"+score
+  <h1>🎯 GUESS THE NUMBER (1 - 10)</h1>
+  <input id="randomnumcheckingg" placeholder="Enter a number">
+  <button id="checking" onclick="verifiying()">Check</button>
+  <p id="resultchecking">Check the answer</p>
+  <p id="scorechecking">YOUR SCORE IS : 10</p>
 
-  
-}
+  <script>
+    var resultchecking = document.getElementById("resultchecking");
+    var scorechecking = document.getElementById("scorechecking");
+    var randomnumchecking = document.getElementById("randomnumcheckingg");
+
+    var a = Math.floor(Math.random() * 10) + 1; // random number
+    var score = 10;
+
+    function verifiying() {
+      var enterednum = Number(randomnumchecking.value);
+
+      if (!enterednum) {
+        resultchecking.textContent = "⚠️ Please enter a number!";
+        return;
+      }
+
+      if (a === enterednum) {
+        resultchecking.textContent = "🎉 YOU ARE RIGHT!";
+        alert("YOU WON! The number was " + a);
+        resetGame(); // restart game after win
+      } else {
+        resultchecking.textContent = "❌ WRONG! Try again.";
+        score--;
+        scorechecking.textContent = "YOUR SCORE IS : " + score;
+
+        if (score <= 0) {
+          alert("💀 GAME OVER! The number was " + a);
+          resetGame();
+        }
+      }
+    }
+
+    function resetGame() {
+      score = 10;
+      a = Math.floor(Math.random() * 10) + 1; // new random number
+      scorechecking.textContent = "YOUR SCORE IS : " + score;
+      resultchecking.textContent = "Check the answer";
+      randomnumchecking.value = "";
+      console.log("New number is: " + a); // for debugging
     }
   </script>
- 
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      width: 150px;
+    }
+    button {
+      padding: 8px 15px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
 </body>
