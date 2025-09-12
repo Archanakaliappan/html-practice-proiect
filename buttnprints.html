@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Print Button Name</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #f9fafb;
+      margin: 0;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    #namee {
+      font-size: 2rem;
+      color: #333;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-container">
+    <button>karthika</button>
+    <button>krithika</button>
+    <button>archana</button>
+  </div>
+
+  <h1 id="namee">Name</h1>
+
+  <script>
+    const namee = document.getElementById("namee");
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        namee.textContent = e.target.textContent;
+      });
+    });
+  </script>
+</body>
+</html>
